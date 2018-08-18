@@ -1,6 +1,7 @@
 <div class="container">
-  <select>
-      <option *ngFor="let deck of deckSizes" value="deck.value">{{ deck.value }}</option>
+  Deck size:
+  <select [(ngModel)]="chosenDeckSize">
+      <option *ngFor="let deck of deckSizes" [value]="deck.value">{{ deck.value }}</option>
   </select>
   <button (click)="startGame()">
     START NEW GAME

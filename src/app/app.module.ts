@@ -1,5 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
@@ -12,6 +14,8 @@ import { GameComponent } from './app/game/game.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './app/page-not-found/page-not-found.component';
 import { DeckChoserComponent } from './app/deck-choser/deck-choser.component';
+
+import { GameService } from './app/services/game.service';
 
 @NgModule({
 	declarations: [
@@ -27,8 +31,12 @@ import { DeckChoserComponent } from './app/deck-choser/deck-choser.component';
 		AppRoutingModule,
 		MatSelectModule,
 		BrowserAnimationsModule,
+		CommonModule,
+		FormsModule,
 	],
-	providers: [],
+	providers: [
+		GameService
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
