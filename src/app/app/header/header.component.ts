@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+	selector: 'app-header',
+	templateUrl: './header.component.html',
+	styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+	public showInteractions = false;
 
-  ngOnInit() {
-  }
+	constructor(
+		private router: Router,
+	) {
+
+	}
+
+	ngOnInit() {
+		this.router.events.subscribe((event) => {
+			if (event instanceof NavigationEnd) {
+				this.showInteractions = event.url !== '/';
+			}
+		});
+	}
 
 }

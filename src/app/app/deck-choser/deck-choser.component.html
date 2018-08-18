@@ -1,0 +1,8 @@
+<div class="container">
+  <select>
+      <option *ngFor="let deck of deckSizes" value="deck.value">{{ deck.value }}</option>
+  </select>
+  <button (click)="startGame()">
+    START NEW GAME
+  </button>
+</div>
