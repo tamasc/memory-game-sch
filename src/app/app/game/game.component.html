@@ -1,3 +1,3 @@
-<p>
-  game works!
-</p>
+<div class="container">
+	<div (click)="chooseCard(card)" [ngStyle]="{'background-image': 'url(assets/cards/' + card + '.png)'}" class="card" *ngFor="let card of currentCards"></div>
+</div>
